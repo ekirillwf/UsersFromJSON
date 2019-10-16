@@ -10,7 +10,16 @@ import SwiftUI
 import Combine
 
 struct Users: Decodable {
-    let firstName, seconName, email, imagUrl: String
+    let user: DetailInformation?
+}
+
+struct DetailInformation: Decodable{
+    let first_name: String
+    let last_name: String
+    let email: String
+    let avatar_url: String
+    
+    
 }
 
 class NetworkManager{
