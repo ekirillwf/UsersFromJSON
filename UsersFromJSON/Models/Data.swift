@@ -13,9 +13,9 @@ import SwiftUI
 
 
 
-//let usersList: [UsersList] = load("userModelData.json")
+let usersList: [UsersList] = load("userModelData.json")
 
-let usersList = url()
+//let usersList = url()
 
 
 func load<T: Decodable>(_ filename: String, as type: T.Type = T.self) -> T {
