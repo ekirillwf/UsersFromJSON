@@ -7,8 +7,30 @@
 //
 
 import SwiftUI
+import Combine
+
+struct Users: Decodable {
+    let firstName, seconName, email, imagUrl: String
+}
+
+class NetworkManager{
+    var didChange = PassthroughSubject<NetworkManager, Never>()
+    
+    var users = [Users]() {
+        didSet{
+            didChange.send(self)
+            
+        }
+    }
+}
+
+
 
 struct ContentView: View {
+    
+    
+    @State var networkManager = NetworkManager()
+    
     var body: some View {
         NavigationView{
             List
@@ -18,7 +40,10 @@ struct ContentView: View {
                     UsersView()
             }
             .navigationBarTitle(Text("Users List"))
+            
+            
         }
+        
     }
 }
 
