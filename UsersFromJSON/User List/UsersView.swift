@@ -10,22 +10,25 @@ import SwiftUI
 
 
 struct UsersView: View {
+    
+    var user: UsersList
+    
     var body: some View {
         HStack {
             Spacer()
-            Image("mini")
+            Image(user.avatar_url)
             .resizable()
                 .frame(width: 70, height: 70)
                 .clipShape(Circle())
             
             VStack(alignment:.leading, spacing: 5.0){
-                HStack{Text ("Имя")
+                HStack{Text (user.first_name)
                     .font(.title)
-                Text ("Фамилия")
+                    Text (user.last_name)
                     .font(.title)
                 }
                 HStack{
-                    Text("e-mail")
+                    Text(user.email)
                         .font(.subheadline)
                     Spacer()
                 }
@@ -34,8 +37,10 @@ struct UsersView: View {
     }
 }
 
-struct UsersView_Previews: PreviewProvider {
+#if DEBUG
+struct TopView_Previews : PreviewProvider {
     static var previews: some View {
-        UsersView()
+        UsersView(user: usersList[2])
     }
 }
+#endif
