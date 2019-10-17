@@ -11,15 +11,52 @@ import Combine
 import Alamofire
 import Foundation
 
-
+//guard let url = URL(string:"https://frogogo-test.herokuapp.com/users.json") else { return }
+//
+//       let session = URLSession.shared
+//       session.dataTask(with: url) {
+//           (data, response, error) in
+//           if let response = response {
+//               print (response)
+//           }
+//           guard let data = data else {return}
+//           print (data)
+//
+//           do {
+//               let json = try JSONSerialization.jsonObject(with: data, options: [])
+//               print(json)
+//           }
+//           catch {
+//               print (error)
+//           }
+//       }.resume()
+//
+//
+//
+//   }
 
 struct ContentView : View {
+    
     var body: some View {
-        NavigationView {
-            List(usersList) { user in
-                Cell(user: user)
+        
+        HStack {
+            VStack {
+                NavigationView {
+                    
+                    List(usersList) { user in
+                        Cell(user: user)
+                        
+                    }
+                    .navigationBarTitle(Text("Users List"))
+                    
+                }
+                Button(action: {}) {
+                    Text("Добавить нового пользователя")
+                        
+                        .font(.subheadline)
+                }
             }
-            .navigationBarTitle(Text("Users List"))
+            
         }
     }
 }

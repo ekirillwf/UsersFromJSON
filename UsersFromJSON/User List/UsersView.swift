@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import Combine
+
 
 
 struct UsersView: View {
@@ -16,10 +18,11 @@ struct UsersView: View {
     var body: some View {
         HStack {
             Spacer()
-            Image(user.avatar_url)
+            Image("mini")
             .resizable()
                 .frame(width: 70, height: 70)
                 .clipShape(Circle())
+                .clipped()
             
             VStack(alignment:.leading, spacing: 5.0){
                 HStack{Text (user.first_name)
